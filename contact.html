@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Azim Akbay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+<nav class="fixed w-full z-50 glass py-3">
+  <div class="container mx-auto px-6 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-full border-2 border-blue-500 overflow-hidden transition-transform group-hover:scale-110">
+        <img
+                src="jouw-foto.jpg"
+                alt="Azim Akbay"
+                class="w-full h-full object-cover"
+        />
+      </div>
+      <span class="code-font text-blue-400 font-bold text-lg md:text-xl">&lt;Azim Akbay /&gt;</span>
+    </a>
+
+    <div class="space-x-8 hidden md:flex items-center">
+      <a href="index.html" class="hover:text-blue-400 transition text-sm uppercase tracking-wider font-semibold">Home</a>
+      <a href="index.html" class="hover:text-blue-400 transition text-sm uppercase tracking-wider font-semibold">Projecten</a>
+      <a href="index.html" class="hover:text-blue-400 transition text-sm uppercase tracking-wider font-semibold">Skills</a>
+      <a href="contact.html" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 text-sm font-bold">Stageplaats?</a>
+    </div>
+  </div>
+</nav>
+
+  <header>
+
+  </header>
+
+<section id="contact" class="py-20 bg-slate-900/50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Laten we <span class="text-blue-500">Praten</span></h2>
+        <p class="text-slate-400">Op zoek naar een gedreven stagiair of heb je een vraag over mijn projecten? Stuur me een bericht!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <div class="space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Email</h4>
+              <p class="text-slate-400">akbayazim@icloud.com</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Locatie</h4>
+              <p class="text-slate-400">Tremelo 3120, België</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+              <i data-lucide="linkedin"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">LinkedIn</h4>
+              <a href="https://linkedin.com/in/azimakbay" class="text-blue-400 hover:underline">linkedin.com/in/azimakbay</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+              <i data-lucide="GitHub"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white">Github</h4>
+              <a href="https://github.com/AkbayDev" class="text-blue-400 hover:underline">github.com/AkbayDev</a>
+            </div>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/fkaylraw" method="POST" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Naam</label>
+            <input type="text" id="name" name="name" required
+                   class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 transition">
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-400 mb-1">E-mailadres</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 transition">
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-slate-400 mb-1">Onderwerp</label>
+            <select id="subject" name="subject"
+                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 transition">
+              <option value="stage">Stageplaats aanbieding</option>
+              <option value="project">Samenwerking project</option>
+              <option value="vraag">Algemene vraag</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-400 mb-1">Bericht</label>
+            <textarea id="message" name="message" rows="4" required
+                      class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 transition"></textarea>
+          </div>
+
+          <input type="hidden" name="_next" value="https://jouwdomeinnaam.be/bedankt.html">
+
+          <button type="submit"
+                  class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2">
+            Verstuur Bericht
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+  <p>Ontworpen & Gebouwd door Azim Akbay &copy; 2024</p>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
