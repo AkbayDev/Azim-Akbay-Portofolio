@@ -81,7 +81,7 @@
 
           <div class="flex items-start gap-4">
             <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
-              <i data-lucide="GitHub"></i>
+              <i data-lucide="github"></i>
             </div>
             <div>
               <h4 class="font-bold text-white">Github</h4>
@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <form action="https://formspree.io/f/mdadngzw" method="POST" class="space-y-4">
+        <form id="contact-form" action="https://formspree.io/f/mdadngzw" method="POST" class="space-y-4">
           <div>
             <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Naam</label>
             <input type="text" id="name" name="name" required
@@ -119,25 +119,76 @@
                       class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 transition"></textarea>
           </div>
 
-          <input type="hidden" name="_next" value="https://azimakbay.com">
-
-          <button type="submit"
-                  class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2">
-            Verstuur Bericht
-            <i data-lucide="send" class="w-4 h-4"></i>
+          <button type="submit" id="submit-button"
+                  class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="button-text">Verstuur Bericht</span>
+            <i data-lucide="send" id="button-icon" class="w-4 h-4"></i>
           </button>
+
+          <p id="status-message" class="text-sm text-center mt-4 font-semibold hidden"></p>
         </form>
 
       </div>
     </div>
   </div>
 </section>
+
 <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
   <p>Ontworpen & Gebouwd door Azim Akbay &copy; 2024</p>
 </footer>
 
 <script>
+  // Initialize Lucide Icons
   lucide.createIcons();
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("status-message");
+  const submitBtn = document.getElementById("submit-button");
+  const buttonText = document.getElementById("button-text");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Stop page refresh
+
+    // UI Feedback: Loading state
+    submitBtn.disabled = true;
+    buttonText.innerText = "Verzenden...";
+    status.classList.add("hidden");
+
+    const data = new FormData(event.target);
+
+    try {
+      const response = await fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Success Logic
+        status.innerText = "Bedankt! Je bericht is succesvol verzonden.";
+        status.className = "text-sm text-center mt-4 font-semibold text-green-400";
+        status.classList.remove("hidden");
+        form.reset(); // Clear form
+      } else {
+        // Error from Formspree logic
+        const errorData = await response.json();
+        status.innerText = "Oeps! Er is iets misgegaan. Probeer het later opnieuw.";
+        status.className = "text-sm text-center mt-4 font-semibold text-red-400";
+        status.classList.remove("hidden");
+      }
+    } catch (error) {
+      // Connection error logic
+      status.innerText = "Netwerkfout. Controleer je internetverbinding.";
+      status.className = "text-sm text-center mt-4 font-semibold text-red-400";
+      status.classList.remove("hidden");
+    } finally {
+      // UI Feedback: Reset button
+      submitBtn.disabled = false;
+      buttonText.innerText = "Verstuur Bericht";
+    }
+  });
 </script>
 </body>
 </html>
