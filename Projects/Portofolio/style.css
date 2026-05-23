@@ -155,7 +155,7 @@ body {
 
 /* Animated background gradient */
 body::before {
-  content: "" / "";
+  content: "";
   position: fixed;
   inset: 0;
   background:
@@ -168,7 +168,7 @@ body::before {
 
 /* Dot matrix overlay */
 body::after {
-  content: "" / "";
+  content: "";
   position: fixed;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -270,7 +270,7 @@ button:focus-visible {
 }
 
 .section-label::before {
-  content: "" / "";
+  content: "";
   display: inline-block;
   width: 2rem;
   height: 1px;
@@ -349,7 +349,7 @@ button:focus-visible {
 }
 
 .nav-logo-icon::after {
-  content: "" / "";
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, var(--color-cyan-dim), transparent);
@@ -373,7 +373,7 @@ button:focus-visible {
 }
 
 .nav-link::after {
-  content: "" / "";
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -608,7 +608,7 @@ button:focus-visible {
 }
 
 .btn-primary::before {
-  content: "" / "";
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
@@ -910,7 +910,7 @@ button:focus-visible {
 }
 
 .skill-card::before {
-  content: "" / "";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1053,7 +1053,7 @@ button:focus-visible {
 }
 
 .project-card-visual::after {
-  content: "" / "";
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 60%, rgba(5, 8, 22, 0.6));
@@ -1287,7 +1287,7 @@ button:focus-visible {
 }
 
 .btn-submit::before {
-  content: "" / "";
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
