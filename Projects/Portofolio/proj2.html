@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python | Azim Akbay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="office-worker.png" type="image/png">
+</head>
+
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+<nav class="fixed w-full z-50 glass py-3">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-full border-2 border-blue-500 overflow-hidden transition-transform group-hover:scale-110">
+                <img
+                        src="office-worker.png"
+                        alt="Profile picture"
+                        class="w-full h-full object-cover"
+                />
+            </div>
+            <span class="code-font text-blue-400 font-bold text-lg md:text-xl">&lt;Azim Akbay /&gt;</span>
+        </a>
+
+        <div class="space-x-8 hidden md:flex items-center">
+            <a href="index.html" class="hover:text-blue-400 transition text-sm uppercase tracking-wider font-semibold">Home</a>
+            <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition shadow-lg shadow-blue-500/20 text-sm font-bold">Stageplaats?</a>
+        </div>
+    </div>
+</nav>
+
+<header id="home" class="min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Python ervaring</h1>
+            <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+                Ik heb van het 3de tot en met het 6de middelbaar diverse python programma's gemaakt
+            </p>
+            <div class="flex space-x-4">
+                <a href="https://github.com/akbaydev" target="_blank" class="p-3 border border-slate-700 rounded-full hover:bg-slate-800 transition">
+                    <i data-lucide="github"></i>
+                </a>
+            </div>
+        </div>
+        <div class="relative hidden md:block">
+            <div class="w-72 h-72 bg-blue-600 rounded-full blur-[100px] opacity-20 absolute -top-10 -left-10"></div>
+            <div class="glass p-8 rounded-2xl relative overflow-hidden">
+            <pre class="code-font text-sm text-blue-300">
+              <code><span class="text-purple-400">const</span> developer = {
+                name: <span class="text-green-400">'Azim Akbay'</span>,
+                grade: <span class="text-green-400">'6de Middelbaar'</span>,
+                status: <span class="text-green-400">'Opzoek naar stageplaats!'</span>,
+                skills: [<span class="text-green-400">'JS', 'Python', 'HTML', 'SQL', 'C#', 'C',...</span>],
+                coding: <span class="text-purple-400">true</span>
+              };</code>
+            </pre>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="project" class="py-20 bg-slate-900/50">
+    <div class="container mx-auto px-6" id="flexbox">
+        <h2 class="text-blue-400 code-font mb-4">Python oefeningen:</h2>
+        <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+            Mijn <strong>python ervaring</strong> strekt zich omtrent basis consoleprogramma's, object georienteerd programmeren en een game maken (space invaders).
+        </p>
+        <img src="loginEx.png" alt="login app example">
+    </div>
+</section>
+
+<section id="contact" class="py-20 mb-20">
+    <div class="container mx-auto px-6 max-w-2xl text-center">
+        <h2 class="text-4xl font-bold mb-6 italic text-white">Ik ben op zoek naar een stage plaats!</h2>
+        <p class="text-slate-400 mb-10">Stuur me met de knop hieronder een mail als je meer informatie wilt.</p>
+        <a href="contact.html" class="inline-flex items-center gap-3 px-10 py-4 border-2 border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300 font-bold">
+            <i data-lucide="mail"></i>
+        </a>
+    </div>
+</section>
+
+<footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+    <p>Ontworpen & Gebouwd door Azim Akbay &copy; 2026</p>
+</footer>
+
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>

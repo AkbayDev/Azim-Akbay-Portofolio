@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta -->
+  <title>Azim Akbay — Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio van Azim Akbay, een gepassioneerde full-stack developer student gespecialiseerd in JavaScript, Python, C#, SQL en moderne webontwikkeling. Op zoek naar een stageplaats in België.">
+  <meta name="keywords" content="Azim Akbay, developer, portfolio, full-stack, JavaScript, Python, C#, SQL, Belgium, stageplaats, web development">
+  <meta name="author" content="Azim Akbay">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Azim Akbay — Full-Stack Developer Portfolio">
+  <meta property="og:description" content="Gepassioneerde full-stack developer student op zoek naar een stageplaats. Bekijk mijn projecten en vaardigheden.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Azim Akbay — Full-Stack Developer">
+  <meta name="twitter:description" content="Portfolio van een gepassioneerde full-stack developer student.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="office-worker.png" type="image/png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Azim Akbay",
+    "url": "https://azimakbay.dev",
+    "jobTitle": "Full-Stack Developer Student",
+    "knowsAbout": ["JavaScript", "Python", "C#", "HTML", "CSS", "SQL", "Git"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tremelo",
+      "postalCode": "3120",
+      "addressCountry": "BE"
+    },
+    "sameAs": [
+      "https://github.com/AkbayDev",
+      "https://linkedin.com/in/azimakbay"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="Azim Akbay - Naar boven">
+        <div class="nav-logo-icon" aria-hidden="true">A</div>
+        <span>&lt;Azim /&gt;</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-menu" role="menubar">
+        <a href="#about" class="nav-link" role="menuitem">Over mij</a>
+        <a href="#skills" class="nav-link" role="menuitem">Skills</a>
+        <a href="#projects" class="nav-link" role="menuitem">Projecten</a>
+        <a href="#contact" class="nav-cta" role="menuitem">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════ -->
+  <header class="hero section" id="hero">
+    <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-greeting">// Hallo, welkom bij mijn portfolio</p>
+
+        <h1 class="hero-name">
+          Ik ben <span class="gradient-text">Azim Akbay</span>
+        </h1>
+
+        <p class="hero-tagline">
+          <span id="typewriter"></span><span class="cursor" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero-description">
+          Een ambitieuze student <strong>Applicatie en Databeheer</strong> met een passie voor
+          full-stack development. Ik bouw digitale oplossingen en ontdek elke dag nieuwe technologieën.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary" id="btn-projects">
+            Bekijk projecten
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="https://github.com/AkbayDev" target="_blank" rel="noopener noreferrer" class="btn-outline" aria-label="GitHub profiel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/azimakbay" target="_blank" rel="noopener noreferrer" class="btn-outline" aria-label="LinkedIn profiel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="code-card">
+          <div class="code-card-header">
+            <span class="code-card-dot"></span>
+            <span class="code-card-dot"></span>
+            <span class="code-card-dot"></span>
+            <span class="code-card-title">developer.js</span>
+          </div>
+          <div class="code-card-body">
+<pre><span class="token-keyword">const</span> <span class="token-prop">developer</span> <span class="token-bracket">=</span> <span class="token-bracket">{</span>
+  <span class="token-prop">name</span>: <span class="token-string">'Azim Akbay'</span>,
+  <span class="token-prop">opleiding</span>: <span class="token-string">'Applicatie & Databeheer'</span>,
+  <span class="token-prop">status</span>: <span class="token-string">'Beschikbaar voor stage'</span>,
+  <span class="token-prop">skills</span>: <span class="token-bracket">[</span>
+    <span class="token-string">'JavaScript'</span>, <span class="token-string">'Python'</span>,
+    <span class="token-string">'C#'</span>, <span class="token-string">'SQL'</span>,
+    <span class="token-string">'HTML/CSS'</span>, <span class="token-string">'Git'</span>
+  <span class="token-bracket">]</span>,
+  <span class="token-prop">passie</span>: <span class="token-bool">true</span>,
+  <span class="token-prop">ambitie</span>: <span class="token-string">'Master Computer Science'</span>
+<span class="token-bracket">}</span>;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════════════════════════
+         ABOUT SECTION
+         ═══════════════════════════════════════════════ -->
+    <div class="section-divider"></div>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">01 — Over mij</p>
+          <h2 class="section-title" id="about-title">Een gedreven developer</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal reveal-delay-1">
+            <p>
+              Ik ben een 6de jaars student aan het <strong>Technisch Atheneum Keerbergen</strong>,
+              richting Applicatie en Databeheer. Met een sterke passie voor technologie en programmeren
+              werk ik dagelijks aan het verbeteren van mijn vaardigheden.
+            </p>
+            <p>
+              Mijn ambitie reikt verder dan een diploma — ik streef naar een
+              <strong>master in Computer Science</strong> en wil bijdragen aan innovatieve projecten.
+              Ik ben leergierig, gemotiveerd en altijd klaar om nieuwe uitdagingen aan te gaan.
+            </p>
+            <p>
+              Momenteel ben ik op zoek naar een <strong>stageplaats</strong> waar ik mijn kennis
+              in de praktijk kan brengen en kan groeien als developer.
+            </p>
+          </div>
+
+          <div class="about-info reveal reveal-delay-2">
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <p class="info-card-label">Email</p>
+                <p class="info-card-value"><a href="mailto:akbayazim@icloud.com">akbayazim@icloud.com</a></p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="info-card-label">Locatie</p>
+                <p class="info-card-value">Tremelo 3120, België</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div>
+                <p class="info-card-label">LinkedIn</p>
+                <p class="info-card-value"><a href="https://linkedin.com/in/azimakbay" target="_blank" rel="noopener noreferrer">linkedin.com/in/azimakbay</a></p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </div>
+              <div>
+                <p class="info-card-label">GitHub</p>
+                <p class="info-card-value"><a href="https://github.com/AkbayDev" target="_blank" rel="noopener noreferrer">github.com/AkbayDev</a></p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <p class="info-card-label">Opleiding</p>
+                <p class="info-card-value">Applicatie & Databeheer — TA Keerbergen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SKILLS / TECH STACK
+         ═══════════════════════════════════════════════ -->
+    <div class="section-divider"></div>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">02 — Tech Stack</p>
+          <h2 class="section-title" id="skills-title">Mijn vaardigheden</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal reveal-delay-1" data-color="cyan">
+            <div class="skill-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="skill-card-title">Frontend</h3>
+            <div class="skill-card-list">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Responsive</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-2" data-color="purple">
+            <div class="skill-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            </div>
+            <h3 class="skill-card-title">Backend</h3>
+            <div class="skill-card-list">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">C</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-3" data-color="green">
+            <div class="skill-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+            </div>
+            <h3 class="skill-card-title">Database</h3>
+            <div class="skill-card-list">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">SQLite</span>
+              <span class="skill-tag">phpMyAdmin</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-4" data-color="orange">
+            <div class="skill-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="skill-card-title">Tools</h3>
+            <div class="skill-card-list">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">JetBrains</span>
+              <span class="skill-tag">XAMPP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECTS SECTION
+         ═══════════════════════════════════════════════ -->
+    <div class="section-divider"></div>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">03 — Projecten</p>
+          <h2 class="section-title" id="projects-title">Wat ik heb gebouwd</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: GIP -->
+          <article class="project-card reveal reveal-delay-1" data-color="cyan">
+            <div class="project-card-visual">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">GIP Project</h3>
+              <p class="project-card-desc">
+                Mijn geïntegreerde proef: een webapplicatie voor Technisch Atheneum Keerbergen
+                met een volledig functioneel inlogsysteem, database-koppeling via phpMyAdmin
+                en XAMPP, en token-gebaseerde authenticatie.
+              </p>
+              <div class="project-card-tags">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Python -->
+          <article class="project-card reveal reveal-delay-2" data-color="green">
+            <div class="project-card-visual">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Python Projecten</h3>
+              <p class="project-card-desc">
+                Diverse Python-opdrachten van het 3de tot 6de middelbaar, inclusief
+                objectgeoriënteerd programmeren, console-applicaties en een interactief
+                2D Space Invaders-spel met Pygame.
+              </p>
+              <div class="project-card-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">OOP</span>
+                <span class="project-tag">Pygame</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: C/C# -->
+          <article class="project-card reveal reveal-delay-3" data-color="purple">
+            <div class="project-card-visual">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">C &amp; C# Ervaring</h3>
+              <p class="project-card-desc">
+                Sinds het 5de middelbaar diverse programma's in C en C# ontwikkeld met de
+                focus op objectgeoriënteerd programmeren, wiskundige algoritmen en
+                softwareontwerp patronen.
+              </p>
+              <div class="project-card-tags">
+                <span class="project-tag">C</span>
+                <span class="project-tag">C#</span>
+                <span class="project-tag">OOP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         CONTACT SECTION
+         ═══════════════════════════════════════════════ -->
+    <div class="section-divider"></div>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <h2 class="contact-intro-title" id="contact-title">
+              Laten we <span class="accent">samenwerken</span>
+            </h2>
+            <p class="contact-intro-text">
+              Op zoek naar een gedreven stagiair of heb je een vraag over mijn projecten?
+              Stuur me een bericht — ik reageer zo snel mogelijk.
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:akbayazim@icloud.com" class="contact-link-item">
+                <div class="contact-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <p class="contact-link-label">Email</p>
+                  <p class="contact-link-value">akbayazim@icloud.com</p>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/azimakbay" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                <div class="contact-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div>
+                  <p class="contact-link-label">LinkedIn</p>
+                  <p class="contact-link-value">linkedin.com/in/azimakbay</p>
+                </div>
+              </a>
+
+              <a href="https://github.com/AkbayDev" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                <div class="contact-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </div>
+                <div>
+                  <p class="contact-link-label">GitHub</p>
+                  <p class="contact-link-value">github.com/AkbayDev</p>
+                </div>
+              </a>
+
+              <div class="contact-link-item">
+                <div class="contact-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="contact-link-label">Locatie</p>
+                  <p class="contact-link-value">Tremelo 3120, België</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper reveal reveal-delay-2">
+            <form id="contact-form" action="https://formspree.io/f/mdadngzw" method="POST" class="contact-form">
+              <div class="form-group">
+                <label for="form-name" class="form-label">Naam</label>
+                <input type="text" id="form-name" name="name" required class="form-input" autocomplete="name" placeholder="Je naam">
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">E-mailadres</label>
+                <input type="email" id="form-email" name="email" required class="form-input" autocomplete="email" placeholder="je@email.com">
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject" class="form-label">Onderwerp</label>
+                <select id="form-subject" name="subject" class="form-select">
+                  <option value="stage">Stageplaats aanbieding</option>
+                  <option value="project">Samenwerking project</option>
+                  <option value="vraag">Algemene vraag</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Bericht</label>
+                <textarea id="form-message" name="message" rows="4" required class="form-textarea" placeholder="Schrijf je bericht..."></textarea>
+              </div>
+
+              <button type="submit" id="submit-button" class="btn-submit">
+                <span id="button-text">Verstuur bericht</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+
+              <p id="status-message" class="form-status" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Ontworpen & gebouwd door <span class="accent">Azim Akbay</span> &copy; 2026
+        </p>
+        <a href="#hero" class="btn-top" aria-label="Terug naar boven">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS
+       ═══════════════════════════════════════════════ -->
+  <script>
+    /* ─────────────────────────────────────────────
+       1. PARTICLE CANVAS
+       ───────────────────────────────────────────── */
+    (function initParticles() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+
+      // Respect reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const ctx = canvas.getContext('2d');
+      let width, height, particles, mouse, animId;
+
+      mouse = { x: null, y: null, radius: 150 };
+
+      function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      }
+
+      function createParticles() {
+        const count = Math.min(Math.floor((width * height) / 12000), 120);
+        particles = [];
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            size: Math.random() * 2 + 0.5,
+            opacity: Math.random() * 0.5 + 0.1
+          });
+        }
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          // Move
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Wrap around
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          // Mouse interaction
+          if (mouse.x !== null) {
+            const dx = p.x - mouse.x;
+            const dy = p.y - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              p.x += dx * force * 0.02;
+              p.y += dy * force * 0.02;
+            }
+          }
+
+          // Draw particle
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
+          ctx.fill();
+
+          // Connect nearby particles
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 212, 255, ${0.08 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+
+        animId = requestAnimationFrame(drawParticles);
+      }
+
+      if (!prefersReducedMotion) {
+        resize();
+        createParticles();
+        drawParticles();
+
+        window.addEventListener('resize', () => {
+          resize();
+          createParticles();
+        });
+
+        canvas.parentElement.addEventListener('mousemove', (e) => {
+          const rect = canvas.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+
+        canvas.parentElement.addEventListener('mouseleave', () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+      }
+    })();
+
+
+    /* ─────────────────────────────────────────────
+       2. TYPEWRITER EFFECT
+       ───────────────────────────────────────────── */
+    (function initTypewriter() {
+      const el = document.getElementById('typewriter');
+      if (!el) return;
+
+      const phrases = [
+        'Full-Stack Developer Student',
+        'Op zoek naar een stageplaats',
+        'Gepassioneerd door technologie',
+        'Ambitie: Master Computer Science'
+      ];
+
+      let phraseIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+
+      function type() {
+        const current = phrases[phraseIdx];
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+          el.textContent = current;
+          return;
+        }
+
+        if (isDeleting) {
+          el.textContent = current.substring(0, charIdx - 1);
+          charIdx--;
+        } else {
+          el.textContent = current.substring(0, charIdx + 1);
+          charIdx++;
+        }
+
+        let delay = isDeleting ? 30 : 60;
+
+        if (!isDeleting && charIdx === current.length) {
+          delay = 2000;
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          delay = 400;
+        }
+
+        setTimeout(type, delay);
+      }
+
+      type();
+    })();
+
+
+    /* ─────────────────────────────────────────────
+       3. SCROLL REVEAL (IntersectionObserver)
+       ───────────────────────────────────────────── */
+    (function initReveal() {
+      const revealEls = document.querySelectorAll('.reveal');
+      if (!revealEls.length) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        revealEls.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      revealEls.forEach(el => observer.observe(el));
+    })();
+
+
+    /* ─────────────────────────────────────────────
+       4. NAVBAR: scroll state + mobile toggle
+       ───────────────────────────────────────────── */
+    (function initNav() {
+      const nav = document.getElementById('nav');
+      const toggle = document.getElementById('nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      const links = menu.querySelectorAll('.nav-link, .nav-cta');
+
+      // Scroll state
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Mobile toggle
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.classList.toggle('active', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+        toggle.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+      });
+
+      // Close mobile menu on link click
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Menu openen');
+        });
+      });
+    })();
+
+
+    /* ─────────────────────────────────────────────
+       5. ACTIVE NAV LINK TRACKING
+       ───────────────────────────────────────────── */
+    (function initActiveNav() {
+      const sections = document.querySelectorAll('section[id], header[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '-80px 0px -40% 0px'
+      });
+
+      sections.forEach(section => observer.observe(section));
+    })();
+
+
+    /* ─────────────────────────────────────────────
+       6. CONTACT FORM (preserved from original)
+       ───────────────────────────────────────────── */
+    (function initContactForm() {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('status-message');
+      const submitBtn = document.getElementById('submit-button');
+      const buttonText = document.getElementById('button-text');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        submitBtn.disabled = true;
+        buttonText.textContent = 'Verzenden...';
+        status.hidden = true;
+
+        const data = new FormData(event.target);
+
+        try {
+          const response = await fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            status.textContent = 'Bedankt! Je bericht is succesvol verzonden.';
+            status.className = 'form-status success';
+            status.hidden = false;
+            form.reset();
+          } else {
+            status.textContent = 'Er is iets misgegaan. Probeer het later opnieuw.';
+            status.className = 'form-status error';
+            status.hidden = false;
+          }
+        } catch {
+          status.textContent = 'Netwerkfout. Controleer je internetverbinding.';
+          status.className = 'form-status error';
+          status.hidden = false;
+        } finally {
+          submitBtn.disabled = false;
+          buttonText.textContent = 'Verstuur bericht';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
