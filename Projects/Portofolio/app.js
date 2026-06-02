@@ -1,299 +1,237 @@
-/* ═══════════════════════════════════════════════════════════
-   1. PARTICLE CANVAS
-   ═══════════════════════════════════════════════════════════ */
-(function initParticles() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
+/* ══════════════════════════════════════════════════════
+   AZIM AKBAY — PORTFOLIO APP.JS
+   Particle canvas, typewriter, scroll reveal, nav, form
+   ══════════════════════════════════════════════════════ */
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function () {
+  'use strict';
 
-  const ctx = canvas.getContext('2d');
-  let width, height, particles, mouse, animId;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  mouse = { x: null, y: null, radius: 150 };
+  /* ── 1. Particle Canvas ─────────────────────────── */
+  var canvas = document.getElementById('particles-canvas');
+  if (canvas && !reducedMotion) {
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var mouse = { x: null, y: null };
+    var w, h;
 
-  function resize() {
-    width = canvas.width = canvas.offsetWidth;
-    height = canvas.height = canvas.offsetHeight;
-  }
-
-  function createParticles() {
-    const count = Math.min(Math.floor((width * height) / 12000), 120);
-    particles = [];
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.1
-      });
+    function resize() {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
     }
-  }
 
-  function drawParticles() {
-    ctx.clearRect(0, 0, width, height);
-
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
-
-      if (mouse.x !== null) {
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < mouse.radius) {
-          const force = (mouse.radius - dist) / mouse.radius;
-          p.x += dx * force * 0.02;
-          p.y += dy * force * 0.02;
-        }
-      }
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
-      ctx.fill();
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.08 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
+    function seed() {
+      var n = Math.min(Math.floor((w * h) / 14000), 100);
+      particles = [];
+      for (var i = 0; i < n; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 1.8 + 0.5,
+          a: Math.random() * 0.45 + 0.1
+        });
       }
     }
 
-    animId = requestAnimationFrame(drawParticles);
-  }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
 
-  if (!prefersReducedMotion) {
+        if (mouse.x !== null) {
+          var dx = p.x - mouse.x;
+          var dy = p.y - mouse.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 140) {
+            p.x += dx * ((140 - d) / 140) * 0.018;
+            p.y += dy * ((140 - d) / 140) * 0.018;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.283);
+        ctx.fillStyle = 'rgba(0,212,255,' + p.a + ')';
+        ctx.fill();
+
+        for (var j = i + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var dx2 = p.x - q.x;
+          var dy2 = p.y - q.y;
+          var d2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+          if (d2 < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = 'rgba(0,212,255,' + (0.07 * (1 - d2 / 110)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
     resize();
-    createParticles();
-    drawParticles();
+    seed();
+    draw();
 
-    window.addEventListener('resize', () => {
-      resize();
-      createParticles();
+    window.addEventListener('resize', function () { resize(); seed(); });
+
+    var heroEl = canvas.parentElement;
+    heroEl.addEventListener('mousemove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
     });
-
-    canvas.parentElement.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
-
-    canvas.parentElement.addEventListener('mouseleave', () => {
+    heroEl.addEventListener('mouseleave', function () {
       mouse.x = null;
       mouse.y = null;
     });
   }
-})();
 
+  /* ── 2. Typewriter ──────────────────────────────── */
+  var typed = document.getElementById('typed');
+  if (typed) {
+    var phrases = [
+      'Full-Stack Developer',
+      'Websites & Webapplicaties',
+      'IT-oplossingen op maat',
+      'Beschikbaar voor projecten'
+    ];
+    var pi = 0, ci = 0, deleting = false;
 
-/* ═══════════════════════════════════════════════════════════
-   2. TYPEWRITER EFFECT
-   ═══════════════════════════════════════════════════════════ */
-(function initTypewriter() {
-  const el = document.getElementById('typewriter');
-  if (!el) return;
-
-  const phrases = [
-    'Full-Stack Developer',
-    'Websites & Webapplicaties',
-    'IT-oplossingen op maat',
-    'Beschikbaar voor projecten'
-  ];
-
-  let phraseIdx = 0;
-  let charIdx = 0;
-  let isDeleting = false;
-
-  function type() {
-    const current = phrases[phraseIdx];
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion) {
-      el.textContent = current;
-      return;
-    }
-
-    if (isDeleting) {
-      el.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
+    if (reducedMotion) {
+      typed.textContent = phrases[0];
     } else {
-      el.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
+      (function tick() {
+        var cur = phrases[pi];
+        typed.textContent = deleting
+          ? cur.substring(0, --ci)
+          : cur.substring(0, ++ci);
+
+        var delay = deleting ? 28 : 55;
+        if (!deleting && ci === cur.length) { delay = 2000; deleting = true; }
+        else if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; delay = 350; }
+        setTimeout(tick, delay);
+      })();
     }
-
-    let delay = isDeleting ? 30 : 60;
-
-    if (!isDeleting && charIdx === current.length) {
-      delay = 2000;
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      isDeleting = false;
-      phraseIdx = (phraseIdx + 1) % phrases.length;
-      delay = 400;
-    }
-
-    setTimeout(type, delay);
   }
 
-  type();
-})();
-
-
-/* ═══════════════════════════════════════════════════════════
-   3. SCROLL REVEAL (IntersectionObserver)
-   ═══════════════════════════════════════════════════════════ */
-(function initReveal() {
-  const revealEls = document.querySelectorAll('.reveal');
-  if (!revealEls.length) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) {
-    revealEls.forEach(el => el.classList.add('visible'));
-    return;
+  /* ── 3. Scroll Reveal ───────────────────────────── */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    if (reducedMotion) {
+      for (var i = 0; i < reveals.length; i++) reveals[i].classList.add('visible');
+    } else {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            entries[i].target.classList.add('visible');
+            obs.unobserve(entries[i].target);
+          }
+        }
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      for (var i = 0; i < reveals.length; i++) obs.observe(reveals[i]);
+    }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
+  /* ── 4. Navbar ──────────────────────────────────── */
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('navMenu');
 
-  revealEls.forEach(el => observer.observe(el));
-})();
-
-
-/* ═══════════════════════════════════════════════════════════
-   4. NAVBAR: scroll state + mobile toggle
-   ═══════════════════════════════════════════════════════════ */
-(function initNav() {
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('nav-menu');
-  const links = menu.querySelectorAll('.nav-link, .nav-cta');
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        nav.classList.toggle('scrolled', window.scrollY > 50);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.classList.toggle('active', isOpen);
-    toggle.setAttribute('aria-expanded', isOpen);
-    toggle.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
-  });
-
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Menu openen');
-    });
-  });
-})();
-
-
-/* ═══════════════════════════════════════════════════════════
-   5. ACTIVE NAV LINK TRACKING
-   ═══════════════════════════════════════════════════════════ */
-(function initActiveNav() {
-  const sections = document.querySelectorAll('section[id], header[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  if (nav && toggle && menu) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          if (window.scrollY > 40) nav.classList.add('scrolled');
+          else nav.classList.remove('scrolled');
+          ticking = false;
         });
+        ticking = true;
       }
     });
-  }, {
-    threshold: 0.3,
-    rootMargin: '-80px 0px -40% 0px'
-  });
 
-  sections.forEach(section => observer.observe(section));
-})();
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.classList.toggle('active', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
 
+    var links = menu.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function () {
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+  }
 
-/* ═══════════════════════════════════════════════════════════
-   6. CONTACT FORM
-   ═══════════════════════════════════════════════════════════ */
-(function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('status-message');
-  const submitBtn = document.getElementById('submit-button');
-  const buttonText = document.getElementById('button-text');
+  /* ── 5. Active nav tracking ─────────────────────── */
+  var sections = document.querySelectorAll('section[id], header[id]');
+  var navLinks = document.querySelectorAll('.nav-link');
+  if (sections.length && navLinks.length) {
+    var secObs = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          var id = entries[i].target.getAttribute('id');
+          for (var j = 0; j < navLinks.length; j++) {
+            if (navLinks[j].getAttribute('href') === '#' + id) navLinks[j].classList.add('active');
+            else navLinks[j].classList.remove('active');
+          }
+        }
+      }
+    }, { threshold: 0.25, rootMargin: '-80px 0px -35% 0px' });
+    for (var i = 0; i < sections.length; i++) secObs.observe(sections[i]);
+  }
 
-  if (!form) return;
+  /* ── 6. Contact Form ────────────────────────────── */
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+  var submitText = document.getElementById('submitText');
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitText.textContent = 'Verzenden...';
+      status.className = 'form-status';
 
-    submitBtn.disabled = true;
-    buttonText.textContent = 'Verzenden...';
-    status.hidden = true;
+      var data = new FormData(form);
 
-    const data = new FormData(event.target);
-
-    try {
-      const response = await fetch(event.target.action, {
-        method: form.method,
+      fetch(form.action, {
+        method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          status.textContent = 'Bedankt! Je bericht is succesvol verzonden.';
+          status.className = 'form-status ok show';
+          form.reset();
+        } else {
+          status.textContent = 'Er is iets misgegaan. Probeer het later opnieuw.';
+          status.className = 'form-status err show';
+        }
+      }).catch(function () {
+        status.textContent = 'Netwerkfout. Controleer je internetverbinding.';
+        status.className = 'form-status err show';
+      }).finally(function () {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Verstuur bericht';
       });
+    });
+  }
 
-      if (response.ok) {
-        status.textContent = 'Bedankt! Je bericht is succesvol verzonden.';
-        status.className = 'form-status success';
-        status.hidden = false;
-        form.reset();
-      } else {
-        status.textContent = 'Er is iets misgegaan. Probeer het later opnieuw.';
-        status.className = 'form-status error';
-        status.hidden = false;
-      }
-    } catch {
-      status.textContent = 'Netwerkfout. Controleer je internetverbinding.';
-      status.className = 'form-status error';
-      status.hidden = false;
-    } finally {
-      submitBtn.disabled = false;
-      buttonText.textContent = 'Verstuur bericht';
-    }
-  });
 })();
